@@ -1,0 +1,25 @@
+public class Sorter {
+            public static void main(String[] args)  {
+                        int[] array = {1,2,3,4,5,7,10};
+                        Sorter example = new Sorter();
+                        System.out.println(example.largestNumber(array, 3));
+            }
+
+            public int largestNumber(int[] numbers, int indexMax)  {
+                            int result = 0;
+                            int previousMax = 0;
+                            for (int i=1; i<=indexMax; i++)  {
+                                    for (int k=0; k<numbers.length; k++)  {
+                                              if (i==1 && numbers[k]>result)  {
+                                                        result=numbers[k];
+                                                }
+                                                else if (i>1 && numbers[k]>result && numbers[k]<previousMax)  {
+                                                        result=numbers[k];
+                                              }
+                                    }
+                                    previousMax = result;
+                                    result =0;
+                            }
+                            return previousMax;
+            }
+}
